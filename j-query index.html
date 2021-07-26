@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j-query index-pic-change</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 700;
+        }
+
+        li {
+            text-align: center;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            transform: translateY(-15%);
+
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .name {
+            max-height: 350px;
+        }
+
+        .name li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 12.5%;
+            background: linear-gradient(65deg, #fff, #812990);
+            border: 1px solid #ccc;
+        }
+
+        .name li:hover {
+            background: linear-gradient(45deg, lightpink, red);
+        }
+
+        .pic {
+            border: 1px solid #ccc;
+            max-width: 290px;
+            max-height: 350px;
+        }
+
+        .pic img {
+            vertical-align: middle;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="content">
+            <ul class="name">
+                <li><a href="#">秋元 真夏</a></li>
+                <li><a href="#">生田 絵梨花</a></li>
+                <li><a href="#">齋藤 飛鳥</a></li>
+                <li><a href="#">高山 一実</a></li>
+                <li><a href="#">樋口 日奈</a></li>
+                <li><a href="#">星野 みなみ</a></li>
+                <li><a href="#">松村 沙友理</a></li>
+                <li><a href="#">和田 まあや</a></li>
+            </ul>
+            <ul class="pic">
+                <li><a href="#"><img src="./images/akimotomanatsu_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/ikutaerika_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/saitouasuka_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/takayamakazumi_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/higuchihina_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/hoshinominami_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/matsumurasayuri_prof.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/wadamaaya_prof.jpg" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.name li').mouseover(function () {
+                let index = $(this).index();
+                console.log(index);
+
+                $('.pic li').eq(index).show().siblings().hide();
+
+            })
+
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
