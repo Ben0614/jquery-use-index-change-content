@@ -57,6 +57,7 @@
             border: 1px solid #ccc;
         }
 
+        /* 觸碰時姓名框變色 */
         li.current {
             background: linear-gradient(45deg, lightpink, red);
         }
@@ -147,16 +148,20 @@
     <script>
         $(function () {
             $('.name li').mouseover(function () {
+                // 取得當前姓名li的索引
                 let index = $(this).index();
                 console.log(index);
 
+                /* 觸碰時當前的姓名框添加class="current"，其他姓名框移除current */
                 $(this).addClass('current').siblings().removeClass('current')
 
+                // 右側圖片按照姓名的索引顯示
                 $('.pic li').eq(index).show().siblings().hide();
 
+                // 下方文字按照姓名的索引顯示
                 $('.introduce ul li').eq(index).show().siblings().hide();
 
-                // 點擊後，文藝顯示區的範圍依照內容長度來改變
+                // 觸碰後，文字顯示區的範圍依照內容長度來改變
                 $('.introduce').css('max-height', '100%');
 
             })
